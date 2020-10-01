@@ -1,36 +1,62 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" href="./assets/css/style.css" />
-    <title>Movie App</title>
-  </head>
-  <body>
-    <div class="container">
-      <h1>Welcome to Movie App</h1>
-      <form>
-        <div class="form-group">
-          <input
-            type="text"
-            class="form-control"
-            id="exampleInputEmail1"
-            aria-describedby="emailHelp"
-            placeholder="Search..."
-          />
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Film2Book</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header class="hero is-primary is-bold">
+        <div class="hero-body">
+            <div class="container">
+                <h1 class="title">
+                    Film2Book
+                </h1>
+                <h2 class="subtitle">
+                    For movie lovers who want to be book lovers too
+                </h2>
+            </div>
         </div>
+    </header>
 
-        <button type="submit" class="btn" id="search">
-          Search a movie
-        </button>
-      </form>
+    <section class="section">
+        <div class="container">
+            <p>Search for a movie you like and we'll prepare a reading list based on the genre</p>
+            <div class="level is-mobile">
+                <div class="level-left has-text-left">
+                    <div class="column">
+                        <h2>Enter a movie:</h2>
+                        <form>
+                            <input type="text" class="form-control" id="movie-search" />
+                            <button type="submit" class="btn" id="search">Search</button>
+                        </form>
+                        <br>
+                        <div id="movie-result">
+                            <p>Your pick:</p>
+                            <img id="movie-pick">
+                            <p class="movie-title"></p>
+                        </div>
+                    </div>
+                </div>
 
-      <div id="movies-searchable"></div>
-      <div id="movies-container"></div>
-    </div>
+                <div class="level-right has-text-left">
+                    <div class="colulmn">
+                        <h2>Reading Suggestions:</h2>
+                        <!-- <div id="book-results"></div> -->
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
 
     <script src="./assets/js/apiTransaction.js"></script>
     <script src="./assets/js/app.js"></script>
-  </body>
+</body>
+
 </html>

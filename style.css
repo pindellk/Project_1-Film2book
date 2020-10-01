@@ -1,1 +1,13 @@
+* {
+    font-family: 'Montserrat', sans-serif;
+    }
+    
+    .subtitle {
+        font-style: italic;
+    }
 
+    .container {
+        width: 75%;
+      }
+
+   
