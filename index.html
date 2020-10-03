@@ -32,14 +32,15 @@
                     <div class="column">
                         <h2>Enter a movie:</h2>
                         <form>
-                            <input type="text" class="form-control" id="movie-search" />
-                            <button type="submit" class="btn" id="search">Search</button>
+                            <input type="text" class="form-control" id="movie-input" />
+                            <button type="submit" class="btn" id="movie-search">Search</button>
                         </form>
                         <br>
                         <div id="movie-result">
                             <p>Your pick:</p>
+                            <p class="heading is-size-5 has-text-centered" id="movie-title"></p>
+                            <p class="is-size-6 has-text-centered" id="movie-year"></p>
                             <img id="movie-pick">
-                            <p class="movie-title"></p>
                         </div>
                     </div>
                 </div>
@@ -55,8 +56,9 @@
         </div>
     </section>
 
-    <script src="./assets/js/apiTransaction.js"></script>
-    <script src="./assets/js/app.js"></script>
+    <!-- <script src="./assets/js/apiTransaction.js"></script> -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="script.js"></script>
 </body>
 
 </html>
