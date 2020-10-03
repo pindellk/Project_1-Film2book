@@ -40,15 +40,18 @@ function getResults() {
 
                 for (var i = 0; i < 6; i++) {
                     var bookResult = $("<li>");
+                    var bookAuthor = $("<li>");
 
-                    // Potential add - randomize book selections
+                    // Randomize book selections
                     // randomBook = response[Math.floor(Math.random() * response.length)]
 
                     bookResult.text(response.items[i].volumeInfo.title);
+                    bookResult.attr("class", "heading is-size-5");
+                    bookAuthor.text("Author: " + response.items[i].volumeInfo.authors);
                     var thumbnail = $("<img>");
                     thumbnail.attr("src", response.items[i].volumeInfo.imageLinks.thumbnail);
 
-                    $("#book-items").append(bookResult, thumbnail);
+                    $("#book-items").append(bookResult, bookAuthor, thumbnail);
                 };
             });
         };
