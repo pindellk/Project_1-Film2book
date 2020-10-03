@@ -25,11 +25,16 @@ $("#movie-search").click(function (event) {
     }).then(function (response) {
         // Pull movie title and append to DOM
         $("#movie-title").text(response.Title);
+        $("#movie-year").text("(" + response.Year + ")");
 
         // Pull movie poster img and append to DOM
         $("#movie-pick").attr("src", response.Poster);
 
-        console.log();
+        // Pull movie genre
+        var genre = response.Genre;
+
+        // Console.log for testing - remove when code complete
+        console.log(genre);
     });
 
 });
