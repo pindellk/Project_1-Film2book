@@ -23,6 +23,10 @@ function getResults() {
         // Pull movie genre - turn into array
         var genre = response.Genre;
         var genreArray = genre.split(', ');
+        var movieCard = $("<div>").addClass("tile");
+
+        $("#movie-result").append(movieCard);
+
 
         function getBookResults() {
             // Clear previous results
