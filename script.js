@@ -39,16 +39,26 @@ function getResults() {
             }).then(function (response) {
 
                 for (var i = 0; i < 6; i++) {
-                    var bookResult = $("<li>");
 
-                    // Potential add - randomize book selections
-                    // randomBook = response[Math.floor(Math.random() * response.length)]
+                    // Randomize book selections
+                    // Create object
+                    // var randomBooks = {
+                    //     [];
+                    // }
+
+                    var randomBook = response[Math.floor(Math.random() * response.length)]
+                    console.log(randomBook);
+
+                    var bookResult = $("<li>");
+                    var bookAuthor = $("<li>");
+                    var thumbnail = $("<img>");
 
                     bookResult.text(response.items[i].volumeInfo.title);
-                    var thumbnail = $("<img>");
+                    bookResult.attr("class", "heading is-size-5");
+                    bookAuthor.text("Author: " + response.items[i].volumeInfo.authors);
                     thumbnail.attr("src", response.items[i].volumeInfo.imageLinks.thumbnail);
 
-                    $("#book-items").append(bookResult, thumbnail);
+                    $("#book-items").append(bookResult, bookAuthor, thumbnail);
                 };
             });
         };
