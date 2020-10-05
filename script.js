@@ -1,97 +1,72 @@
-// On-click event for movie search
-// On-click event for movie search
 
-// Function for finding movie genre
+function getResults() {
 
-// Function for finding books based on subject
+    // Movie API call
+    var movie = $("#movie-input").val().trim();
+    var omdbAPIkey = "&apikey=trilogy";   // new API key?
+    var movieURL = "https://www.omdbapi.com/?t=" + movie + omdbAPIkey;
 
-// Function for BOOK AJAX get request
-
-// Append book results to DOM
-
-
-// Search on-click event
-$("#movie-search").click(function (event) {
-  event.preventDefault();
-
-  var movie = $("#movie-input").val().trim();
-  var APIkey = "&apikey=trilogy";
-  var queryURL = "https://www.omdbapi.com/?t=" + movie + APIkey;
-
-  localStorage.setItem("movie", movie);
-
-  $.ajax({
-      url: queryURL,
-      method: "GET"
-  }).then(function (response) {
-      // Pull movie title and append to DOM
-      $("#movie-title").text(response.Title);
-      $("#movie-year").text("(" + response.Year + ")");
-
-      // Pull movie poster img and append to DOM
-      $("#movie-pick").attr("src", response.Poster);
-
-      // Pull movie genre
-      var genre = response.Genre;
-
-      // Console.log for testing - remove when code complete
-      console.log(genre);
-         
-      $.ajax({
-            url:"https://www.googleapis.com/books/v1/volumes?q=subject:adventure&orderBy=newest",
-            method: "GET"
-        }).then (function(response) {
-         console.log(response)
-    
-         
-         for (var i = 0; i < response.items.length; i++) {
-          // This loop wioll go through every book on the 6-book list
-          console.log(response.items[i].volumeInfo.title);
-              
-          var bookList=$("<li>");
-          bookList.text("Title:" + response.items[i].volumeInfo.title).attr("<h3>")
-        //  var bookList= $("<li>").text(response.items[i].volumeInfo.title)
-          var img =$("<img>");
-          img.text()
-        //  bookTitle.append(bookList)
-      //  var bookTitle=$("#book-title").text(response.Title)
-       $("#book-items").append(bookList);
-         }
-        })   
-       
-       
-  });
-
-});
+    // Add return if movie does not exist
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    $.ajax({
+        url: movieURL,
+        method: "GET"
+    }).then(function (response) {
+        // Pull movie title and append to DOM
+        $("#movie-title").text(response.Title);
+        $("#movie-year").text("(" + response.Year + ")");
 
 // var book =  $(this).attr("data-name");
 // var books = $();
 
+        // Pull movie genre - turn into array
+        var genre = response.Genre;
+        var genreArray = genre.split(', ');
 
-// function displaybooks() {
-//  $.ajax({
-//      url:"https://www.googleapis.com/books/v1/volumes?q=search+subject:" + book + "&orderBy=newest",
-//      method: "GET"
-//  }).then (function(Response) {
-//   console.log(Response)
+        function getBookResults() {
+            // Clear previous results
+            $("#book-items").empty();
 
-// var results = 0
- 
-//  })   
-// }
+            // Select random genre from array and add as search subject in URL
+            var searchValue = genreArray[Math.floor(Math.random() * genreArray.length)];
+            var bookURL = "https://www.googleapis.com/books/v1/volumes?q=subject:" + searchValue + "&orderBy=newest&startIndex=0&printType=books&projection=full&langRestrict=en";
+
+            $.ajax({
+                url: bookURL,
+                method: "GET"
+            }).then(function (response) {
+
+                for (var i = 0; i < 6; i++) {
+
+                    // Randomize book selections
+                    // Create object
+                    // var randomBooks = {
+                    //     [];
+                    // }
+
+                    var randomBook = response[Math.floor(Math.random() * response.length)]
+                    console.log(randomBook);
+
+                    var bookResult = $("<li>");
+                    var bookAuthor = $("<li>");
+                    var thumbnail = $("<img>");
+
+                    bookResult.text(response.items[i].volumeInfo.title);
+                    bookResult.attr("class", "heading is-size-5");
+                    bookAuthor.text("Author: " + response.items[i].volumeInfo.authors);
+                    thumbnail.attr("src", response.items[i].volumeInfo.imageLinks.thumbnail);
+
+                    $("#book-items").append(bookResult, bookAuthor, thumbnail);
+                };
+            });
+        };
+        getBookResults();
+    });
+};
+
+// Search on-click event
+$("#movie-search").click(function (event) {
+    event.preventDefault();
+    getResults();
+});
