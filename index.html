@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <header class="hero is-primary is-bold">
+    <header class="hero is-info is-bold">
         <div class="hero-body">
             <div class="container">
                 <h1 class="title">
@@ -26,39 +26,34 @@
 
     <section class="section">
         <div class="container">
-            <p>Search for a movie you like and we'll prepare a reading list based on the genre</p>
-            <div class="level is-mobile">
-                <div class="level-left has-text-left">
-                    <div class="column">
-                        <h2>Enter a movie:</h2>
-                        <form>
-                            <input type="text" class="form-control" id="movie-input" />
-                            <button type="submit" class="btn" id="movie-search">Search</button>
-                        </form>
-                        <br>
-                        <div id="movie-result">
-                            <p>Your pick:</p>
-                            <p class="heading is-size-5 has-text-centered" id="movie-title"></p>
-                            <p class="is-size-6 has-text-centered" id="movie-year"></p>
-                            <img id="movie-pick">
-                        </div>
+            <p class="is-size-5">Want to read more books but unsure where to start? Search for a movie you like and we'll prepare a reading list based on the genre.</p>
+            <br>
+            <div class="columns is-variable is-mobile">
+                <div class="column is-one-third has-text-left">
+                    <h2 class="is-size-5">Enter a movie:</h2>
+                    <form>
+                        <input type="text" class="form-control" id="movie-input" />
+                        <button type="submit" class="btn" id="movie-search">Search</button>
+                    </form>
+                    <br>
+                    <div class="has-text-centered" id="movie-result">
+                        <p class="heading is-size-5" id="movie-title"></p>
+                        <p class="is-size-6" id="movie-year"></p>
+                        <img id="movie-pick">
                     </div>
                 </div>
 
-                <div class="level-right has-text-left">
-                    <div class="colulmn">
-                        <h2>Reading Suggestions:</h2>
-                        <div id="book-results"></div>
-                            <ul id="book-items">
-                            </ul>
-                    </div>
+                <div class="column is-two-thirds has-text-left">
+                    <p class="is-size-4">Reading Suggestions:</p>
+                    <div id="book-results"></div>
+                    <ul id="book-items">
+                    </ul>
                 </div>
 
             </div>
         </div>
     </section>
 
-    <!-- <script src="./assets/js/apiTransaction.js"></script> -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="script.js"></script>
 </body>
