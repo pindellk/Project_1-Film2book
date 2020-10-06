@@ -38,16 +38,12 @@ function getResults() {
                 method: "GET"
             }).then(function (response) {
 
+                var bookList = response.Items;
+
                 for (var i = 0; i < 6; i++) {
 
-                    // Randomize book selections
-                    // Create object
-                    // var randomBooks = {
-                    //     [];
-                    // }
-
-                    var randomBook = response[Math.floor(Math.random() * response.length)]
-                    console.log(randomBook);
+                    // var randomBook = bookList[Math.floor(Math.random() * response.length)];
+                    // console.log(randomBook);
 
                     var bookResult = $("<li>");
                     var bookAuthor = $("<li>");
