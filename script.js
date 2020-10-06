@@ -17,15 +17,22 @@ function getResults() {
         $("#movie-title").text(response.Title);
         $("#movie-year").text("(" + response.Year + ")");
 
-// var book =  $(this).attr("data-name");
-// var books = $();
+        // Pull movie poster img and append to DOM
+        $("#movie-pick").attr("src", response.Poster);
 
         // Pull movie genre - turn into array
         var genre = response.Genre;
         var genreArray = genre.split(', ');
-        var movieCard = $("<div>").addClass("tile");
+        
+        var pick =$("<h2>").text("Your pick:");
+        var readPicks= $("<h2>").text("Reading Suggestions:");
+        
 
-        $("#movie-result").append(movieCard);
+        // card.append(tileChild,tileParent);
+        
+        $("#book-results").prepend(readPicks)
+        $("#movie-result").prepend(pick)
+
 
 
         function getBookResults() {
@@ -62,6 +69,7 @@ function getResults() {
                     thumbnail.attr("src", response.items[i].volumeInfo.imageLinks.thumbnail);
 
                     $("#book-items").append(bookResult, bookAuthor, thumbnail);
+                    
                 };
             });
         };
