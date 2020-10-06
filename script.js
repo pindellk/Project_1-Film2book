@@ -8,7 +8,6 @@ function getResults() {
 
     // Add return if movie does not exist
 
-    localStorage.setItem("movie", movie);
 
     $.ajax({
         url: movieURL,
@@ -24,6 +23,17 @@ function getResults() {
         // Pull movie genre - turn into array
         var genre = response.Genre;
         var genreArray = genre.split(', ');
+        
+        var pick =$("<h2>").text("Your pick:");
+        var readPicks= $("<h2>").text("Reading Suggestions:");
+        
+
+        // card.append(tileChild,tileParent);
+        
+        $("#book-results").prepend(readPicks)
+        $("#movie-result").prepend(pick)
+
+
 
         function getBookResults() {
             // Clear previous results
@@ -81,6 +91,7 @@ function getResults() {
                     thumbnail.attr("src", Thumbnails);
 
                     $("#book-items").append(bookResult, bookAuthor, thumbnail);
+                    
                 };
             });
         };

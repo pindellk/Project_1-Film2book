@@ -30,30 +30,39 @@
             <div class="level is-mobile">
                 <div class="level-left has-text-left">
                     <div class="column">
+                        <!--- create tile -->
+                        
                         <h2>Enter a movie:</h2>
                         <form>
-                            <input type="text" class="form-control" id="movie-input" />
-                            <button type="submit" class="btn" id="movie-search">Search</button>
+                            <input type="text" class="input is-primary is-small" id="movie-input" />
+                            <button type="submit" class="button is-primary" id="movie-search">Search</button>
                         </form>
                         <br>
                         <div id="movie-result">
-                            <p>Your pick:</p>
-                            <p class="heading is-size-5 has-text-centered" id="movie-title"></p>
-                            <p class="is-size-6 has-text-centered" id="movie-year"></p>
+
+                            <!-- <p>Your pick:</p> -->
+                            
+                            <p class="heading is-size-3 has-text-centered" id="movie-title"></p>
+                            <p class="is-size-3 has-text-centered" id="movie-year"></p>
+                            <div class="column">
                             <img id="movie-pick">
+                        </div>
                         </div>
                     </div>
                 </div>
-
+            </div>
+            <div class="level is-mobile">
                 <div class="level-right has-text-left">
-                    <div class="colulmn">
-                        <h2>Reading Suggestions:</h2>
+                    <div class="column">
+
+                        <!-- <h2>Reading Suggestions:</h2> -->
                         <div id="book-results"></div>
                             <ul id="book-items">
-                            </ul>
+                                
+                        </ul>
                     </div>
-                </div>
-
+                </div>  
+            </div>
             </div>
         </div>
     </section>
