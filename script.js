@@ -31,32 +31,54 @@ function getResults() {
 
             // Select random genre from array and add as search subject in URL
             var searchValue = genreArray[Math.floor(Math.random() * genreArray.length)];
-            var bookURL = "https://www.googleapis.com/books/v1/volumes?q=subject:" + searchValue + "&orderBy=newest&startIndex=0&printType=books&projection=full&langRestrict=en";
+            var bookURL = "https://www.googleapis.com/books/v1/volumes?q=subject:" + searchValue + "&orderBy=newest&startIndex=0&maxResults=40&printType=books&projection=full&langRestrict=en";
 
             $.ajax({
                 url: bookURL,
                 method: "GET"
             }).then(function (response) {
 
+                console.log(response.items);
+
+                var allTitles = [];
+                var allAuthors = [];
+                var allThumbnails = [];
+                // Creating an array to hold all the titles
+
+                // Starting a for loop that will go through every item in the APIs list
+                for (var i = 0; i < response.items.length; i++) {
+                    // Creating a variable that will hold the item's title
+                    var responseTitles = response.items[i].volumeInfo.title;
+                    var responseAuthors = response.items[i].volumeInfo.authors;
+                    var responseThumbnails = response.items[i].volumeInfo.imageLinks.thumbnail;
+
+                    // Pushing each title into the allTitles array
+                    allTitles.push(responseTitles);
+                    allAuthors.push(responseAuthors);
+                    allThumbnails.push(responseThumbnails);
+                }
+
                 for (var i = 0; i < 6; i++) {
 
-                    // Randomize book selections
-                    // Create object
-                    // var randomBooks = {
-                    //     [];
-                    // }
+                    var randomNumber = Math.floor((Math.random() * 40) + 1);
+                    // Grabbing a title from the allTitles array with the index of a random number.
+                    var Titles = allTitles[randomNumber];
+                    var Authors = allAuthors[randomNumber];
+                    var Thumbnails = allThumbnails[randomNumber];
 
-                    var randomBook = response[Math.floor(Math.random() * response.length)]
-                    console.log(randomBook);
+                    console.log(Titles);
+                    console.log(Authors);
+                    console.log(Thumbnails);
+
 
                     var bookResult = $("<li>");
                     var bookAuthor = $("<li>");
                     var thumbnail = $("<img>");
 
-                    bookResult.text(response.items[i].volumeInfo.title);
+                    bookResult.text(Titles);
                     bookResult.attr("class", "heading is-size-5");
-                    bookAuthor.text("Author: " + response.items[i].volumeInfo.authors);
-                    thumbnail.attr("src", response.items[i].volumeInfo.imageLinks.thumbnail);
+                    bookAuthor.text("Author: " + Authors);
+                    thumbnail.attr("src", Thumbnails);
 
                     $("#book-items").append(bookResult, bookAuthor, thumbnail);
                 };
