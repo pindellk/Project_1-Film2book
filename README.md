@@ -1,4 +1,6 @@
 # Project_1-Film2book
+
+
 ## Project Description:
 Build an app that suggests a reading list based on a movie entered by the user
 
@@ -32,3 +34,7 @@ GoogleAPI
 
 ## Github Page
 link:https://rbozal1.github.io/Project_1-Film2book/
+
+## Screen Shot
+
+<img width="1128" alt="Film2Book Webpage Screenshot" src="https://user-images.githubusercontent.com/68923455/95385033-6ae17880-08bb-11eb-816b-2f7dc1c37fff.PNG">
