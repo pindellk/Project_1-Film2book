@@ -12,8 +12,8 @@ OMDB API
 GoogleAPI
 
 ## Task Breakdown:
-Front End
- -Pick non-Bootstrap CSS framework to use
+### Front End
+ ### -Pick non-Bootstrap CSS framework to use
  -Build semantic HTML elements based on wireframe
  -Create all forms and buttons needed to collect user input and display results
  -Create CSS to ensure proper formatting and spacing
