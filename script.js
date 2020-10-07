@@ -2,7 +2,9 @@ function getResults() {
 
     // Movie API call
     var movie = $("#movie-input").val().trim();
-    var omdbAPIkey = "&apikey=trilogy";
+
+    var omdbAPIkey = "&apikey=381d5d90";   // new API key?
+
     var movieURL = "https://www.omdbapi.com/?t=" + movie + omdbAPIkey;
 
     $.ajax({
@@ -21,9 +23,10 @@ function getResults() {
         var genre = response.Genre;
         var genreArray = genre.split(', ');
 
+
         var readPicks = $("<h2>").text("Reading Suggestions:");
         $("#book-results").prepend(readPicks)
-       
+
         function getBookResults() {
             // Clear previous results
             $("#book-results").empty();
