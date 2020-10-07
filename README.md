@@ -36,6 +36,5 @@ GoogleAPI
 link:https://rbozal1.github.io/Project_1-Film2book/
 
 ## Screen Shot
-Screen Shot
 
 <img width="1128" alt="Film2Book Webpage Screenshot" src="https://user-images.githubusercontent.com/68923455/95385033-6ae17880-08bb-11eb-816b-2f7dc1c37fff.PNG">
