@@ -26,14 +26,14 @@ function getResults() {
         var genre = response.Genre;
         var genreArray = genre.split(', ');
         
-        var pick =$("<h2>").text("Your pick:");
+        // var pick =$("<h2>").text("Your pick:");
         var readPicks= $("<p>").addClass("is-size-4").text("Reading Suggestions:");
         
 
         // card.append(tileChild,tileParent);
         
         $("#book-results").prepend(readPicks)
-        $("#movie-result").prepend(pick)
+        // $("#movie-result").prepend(pick)
 
 
 
@@ -104,12 +104,12 @@ function getResults() {
 // Search on-click event
 $("#movie-search").click(function (event) {
     event.preventDefault();
-    if ($(this).hasClass('clicked')) { 
-        return true;
-    } else {
-        $(this).addClass('clicked').trigger('click');
+    // if ($(this).hasClass('clicked')) { 
+    //     return true;
+    // } else {
+    //     $(this).addClass('clicked').trigger('click');
         getResults();
-    }
+    // }
     
 
 });
