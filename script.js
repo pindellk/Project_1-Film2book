@@ -21,7 +21,6 @@ function getResults() {
         var genre = response.Genre;
         var genreArray = genre.split(', ');
 
-        var readPicks = $("<h2>").text("Reading Suggestions:");
         $("#book-results").prepend(readPicks)
        
         function getBookResults() {
@@ -77,7 +76,6 @@ function getResults() {
                     thumbnail.attr("src", Thumbnails);
 
                     $("#book-results").append(bookResult, bookAuthor, thumbnail);
-
                 };
             });
         };
