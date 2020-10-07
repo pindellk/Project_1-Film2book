@@ -4,9 +4,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Film2Book</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
-    <!-- <link rel="stylesheet" href="style.css"> -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
 </head>
 
@@ -14,8 +14,10 @@
     <header class="hero is-info is-bold">
         <div class="hero-body">
             <div class="container">
+
                 <h1 class="title">
-                    Film2Book
+                    <i class="fa fa-book">Film2Book</i>
+                   
                 </h1>
                 <h2 class="subtitle">
                     For movie lovers who want to be book lovers too
@@ -32,8 +34,8 @@
                 <div class="column is-one-third has-text-left">
                     <h2 class="is-size-5">Enter a movie:</h2>
                     <form>
-                        <input type="text" class="form-control" id="movie-input" />
-                        <button type="submit" class="btn" id="movie-search">Search</button>
+                        <input type="text" class="input is-normal is-medium is-info" id="movie-input" /><br><br>
+                        <button type="submit" class="button is-small is-info" id="movie-search">Search</button>
                     </form>
                     <br>
                     <div class="has-text-centered" id="movie-result">
@@ -44,7 +46,7 @@
                 </div>
 
                 <div class="column is-two-thirds has-text-left">
-                    <p class="is-size-4">Reading Suggestions:</p>
+
                     <div id="book-results"></div>
                     <ul id="book-items">
                     </ul>

@@ -4,8 +4,22 @@
 
     .subtitle {
         font-style: italic;
+        /* background-color: blanchedalmond; */
     }
 
     .container {
         width: 75%;
+      }
+
+      h1,h2{
+        font-family: "Comic Sans MS", cursive, sans-serif;
+      }
+
+      p{
+          background-color: rgb(232, 234, 238);
+          font-family: "Comic Sans MS", cursive, sans-serif;
+      }
+
+      .section{
+          background-color: rgb(248, 247, 241);
       }

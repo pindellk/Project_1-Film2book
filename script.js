@@ -1,4 +1,6 @@
 
+
+var movie = $("#movie-input").val().trim();
 function getResults() {
 
     // Movie API call
@@ -25,7 +27,7 @@ function getResults() {
         var genreArray = genre.split(', ');
         
         var pick =$("<h2>").text("Your pick:");
-        var readPicks= $("<h2>").text("Reading Suggestions:");
+        var readPicks= $("<p>").addClass("is-size-4").text("Reading Suggestions:");
         
 
         // card.append(tileChild,tileParent);
@@ -102,5 +104,13 @@ function getResults() {
 // Search on-click event
 $("#movie-search").click(function (event) {
     event.preventDefault();
-    getResults();
+    if ($(this).hasClass('clicked')) { 
+        return true;
+    } else {
+        $(this).addClass('clicked').trigger('click');
+        getResults();
+    }
+    
+
 });
+
