@@ -3,7 +3,7 @@ function getResults() {
 
     // Movie API call
     var movie = $("#movie-input").val().trim();
-    var omdbAPIkey = "&apikey=trilogy";   // new API key?
+    var omdbAPIkey = "&apikey=381d5d90";   // new API key?
     var movieURL = "https://www.omdbapi.com/?t=" + movie + omdbAPIkey;
 
     // Add return if movie does not exist
@@ -24,20 +24,18 @@ function getResults() {
         var genre = response.Genre;
         var genreArray = genre.split(', ');
         
-        var pick =$("<h2>").text("Your pick:");
         var readPicks= $("<h2>").text("Reading Suggestions:");
         
 
         // card.append(tileChild,tileParent);
         
         $("#book-results").prepend(readPicks)
-        $("#movie-result").prepend(pick)
 
 
 
         function getBookResults() {
             // Clear previous results
-            $("#book-items").empty();
+            $("#book-results").empty();
 
             // Select random genre from array and add as search subject in URL
             var searchValue = genreArray[Math.floor(Math.random() * genreArray.length)];
@@ -90,7 +88,7 @@ function getResults() {
                     bookAuthor.text("Author: " + Authors);
                     thumbnail.attr("src", Thumbnails);
 
-                    $("#book-items").append(bookResult, bookAuthor, thumbnail);
+                    $("#book-results").append(bookResult, bookAuthor, thumbnail);
                     
                 };
             });
