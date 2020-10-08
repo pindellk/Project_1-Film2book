@@ -9,3 +9,14 @@
     .container {
         width: 75%;
       }
+
+    li {
+        list-style-type: none;
+    }
+
+    footer {
+        text-align: center;
+        font-size: 12px;
+        color: white;
+        background-color: lightskyblue;
+    }
